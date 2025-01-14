@@ -1,0 +1,20 @@
+{
+	"name": "DrillbertSleepIndicator",
+	"namespace": "LombyGG",
+	"version_number": "0.0.1",
+	"description": "An updated Drillbert sleep indicator for v4 that adapts to show Drilliam, Diggory, Minerva & more!",
+	"website_url": "https://",
+	"dependencies": [],
+	"extra": {
+		"godot": {
+			"incompatibilities": [],
+			"authors": ["LombyGG"],
+			"compatible_mod_loader_version": ["4.1.0"],
+			"compatible_game_version": ["4.2"],
+			"config_defaults": {},
+			"tags": [
+				"v4"
+			]
+		}
+	}
+}

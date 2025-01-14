@@ -1,0 +1,202 @@
+[gd_scene load_steps=5 format=3 uid="uid://qcjwq3hajr3e"]
+
+[ext_resource type="Script" path="res://mods-unpacked/LombyGG-DrillbertSleepIndicator/extensions/content/hud/DrillbertSleepingIndicator.gd" id="1_8tugw"]
+[ext_resource type="Texture2D" uid="uid://u202w5usvtag" path="res://content/gadgets/drillbot/drillbot-Sheet.png" id="2_8e1c2"]
+[ext_resource type="LabelSettings" path="res://gui/fontsettings/HudPixelartMonospacedFontSettings.tres" id="4_lhnsd"]
+[ext_resource type="FontVariation" uid="uid://bs1kfh7lbdrem" path="res://gui/fonts/FontHudPixelartMonospaced.tres" id="5_85wmo"]
+
+[node name="DrillbertSleepingIndicator" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8tugw")
+element_size = Vector2(8, 3)
+layoutPriority = 10
+
+[node name="Awake" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Drillbert" type="Sprite2D" parent="."]
+position = Vector2(19, 6)
+texture = ExtResource("2_8e1c2")
+flip_h = true
+hframes = 22
+vframes = 50
+
+[node name="Sleep" type="Label" parent="Drillbert"]
+visible = false
+texture_filter = 1
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 31.0
+scale = Vector2(0.125, 0.125)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_85wmo")
+text = "z"
+label_settings = ExtResource("4_lhnsd")
+
+[node name="Sleep2" type="Label" parent="Drillbert"]
+visible = false
+texture_filter = 1
+offset_left = 5.0
+offset_top = -3.0
+offset_right = 30.0
+offset_bottom = 28.0
+scale = Vector2(0.125, 0.125)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_85wmo")
+text = "z"
+label_settings = ExtResource("4_lhnsd")
+
+[node name="Drilliam" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(12, 12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_8e1c2")
+flip_h = true
+hframes = 22
+vframes = 50
+frame = 440
+
+[node name="Sleep" type="Label" parent="Drilliam"]
+visible = false
+texture_filter = 1
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 31.0
+scale = Vector2(0.125, 0.125)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_85wmo")
+text = "z"
+label_settings = ExtResource("4_lhnsd")
+
+[node name="Sleep2" type="Label" parent="Drilliam"]
+visible = false
+texture_filter = 1
+offset_left = 5.0
+offset_top = -3.0
+offset_right = 30.0
+offset_bottom = 28.0
+scale = Vector2(0.125, 0.125)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_85wmo")
+text = "z"
+label_settings = ExtResource("4_lhnsd")
+
+[node name="Diggory" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(30, 3)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_8e1c2")
+flip_h = true
+hframes = 22
+vframes = 50
+frame = 660
+
+[node name="Sleep" type="Label" parent="Diggory"]
+visible = false
+texture_filter = 1
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 31.0
+scale = Vector2(0.125, 0.125)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_85wmo")
+text = "z"
+label_settings = ExtResource("4_lhnsd")
+
+[node name="Sleep2" type="Label" parent="Diggory"]
+visible = false
+texture_filter = 1
+offset_left = 5.0
+offset_top = -3.0
+offset_right = 30.0
+offset_bottom = 28.0
+scale = Vector2(0.125, 0.125)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_85wmo")
+text = "z"
+label_settings = ExtResource("4_lhnsd")
+
+[node name="Minerva" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(30, 12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_8e1c2")
+flip_h = true
+hframes = 22
+vframes = 50
+frame = 880
+
+[node name="Sleep" type="Label" parent="Minerva"]
+visible = false
+texture_filter = 1
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 31.0
+scale = Vector2(0.125, 0.125)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_85wmo")
+text = "z"
+label_settings = ExtResource("4_lhnsd")
+
+[node name="Sleep2" type="Label" parent="Minerva"]
+visible = false
+texture_filter = 1
+offset_left = 5.0
+offset_top = -3.0
+offset_right = 30.0
+offset_bottom = 28.0
+scale = Vector2(0.125, 0.125)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_85wmo")
+text = "z"
+label_settings = ExtResource("4_lhnsd")
+
+[node name="TotalCount" type="Label" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 2
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 17.0
+offset_bottom = 19.0
+scale = Vector2(0.25, 0.25)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_85wmo")
+text = "1"
+label_settings = ExtResource("4_lhnsd")
+
+[node name="SleepCount" type="Label" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 2
+offset_left = 21.0
+offset_top = 10.0
+offset_right = 37.0
+offset_bottom = 28.0
+scale = Vector2(0.25, 0.25)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_85wmo")
+text = "1"
+label_settings = ExtResource("4_lhnsd")
+
+[node name="AwakeCount" type="Label" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 2
+offset_left = 21.0
+offset_top = 1.0
+offset_right = 37.0
+offset_bottom = 19.0
+scale = Vector2(0.25, 0.25)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_85wmo")
+text = "1"
+label_settings = ExtResource("4_lhnsd")
