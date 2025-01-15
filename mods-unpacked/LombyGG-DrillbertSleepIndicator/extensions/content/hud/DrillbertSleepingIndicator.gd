@@ -1,8 +1,9 @@
 extends HudElement
 
 var sleepCounterShown = false
-var totalDinos = 0
 var totalDinosAsleep = 0
+var dinoDictionary = {}
+var dinoIndex: int
 
 func _ready():
 	Style.init(self)
@@ -20,14 +21,12 @@ func _ready():
 	Data.listen(self, "drillbert.sleeping", true)
 	Data.listen(self, "drillbert.awake", true)
 	#Data.listen(self, "drillbert.hitcount", true)
-	Data.listen(self, "drillbert.headcount", true)
+	Data.listen(self, "drillbot.headcount", true)
 
 func propertyChanged(property:String, oldValue, newValue):
 	match property:
 		# ONLY LOWERCASE HERE
-		"drillbert.headcount":
-			totalDinos = newValue
-			#$TotalCount.text = str(newValue)
+		"drillbot.headcount":
 			sleepCounterShown = false
 			if newValue == 0:				
 				element_size = Vector2(1, 1)
@@ -57,14 +56,18 @@ func propertyChanged(property:String, oldValue, newValue):
 				$TotalCount.hide()
 				sleepCounterShown = true
 				element_size = Vector2(5, 3)
+				setCounters()
+				
+			dinoDictionary.clear()
+			Data.apply("drillbert.resethud", true)
+			emit_signal("request_rebuild")
 			
 		"drillbert.sleeping":
-			if newValue == 0:
-				totalDinosAsleep = 0
+			dinoIndex = getDinoIndex(newValue, true)
 			if sleepCounterShown:
-				totalDinosAsleep += 1
-			else:
-				match newValue:
+				setCounters()
+			else:	
+				match dinoIndex:
 					0:				
 						$Drillbert.frame_coords.y = 3
 						$Drillbert/Sleep.show()
@@ -85,13 +88,11 @@ func propertyChanged(property:String, oldValue, newValue):
 						pass
 				
 		"drillbert.awake":
-			if newValue == 0:
-				totalDinosAsleep = 0
+			dinoIndex = getDinoIndex(newValue, false)
 			if sleepCounterShown:
-				if newValue == -1:
-					setCounters()
+				setCounters()
 			else:
-				match newValue:
+				match dinoIndex:
 					0:			
 						$Drillbert.frame_coords.y = 0
 						$Drillbert/Sleep.hide()
@@ -115,8 +116,24 @@ func propertyChanged(property:String, oldValue, newValue):
 			#$Awake/Label.text = str(newValue)		
 			pass	
 			
+func getDinoIndex(dinoName: String, isAsleep: bool) -> int:
+	if !dinoDictionary.has(dinoName):
+		dinoIndex = dinoDictionary.size() 
+		dinoDictionary[dinoName] = {
+			"index": dinoIndex,
+			"isAsleep": isAsleep,
+		}
+		print(dinoName)
+	else:
+		dinoIndex = dinoDictionary[dinoName].get("index")
+		dinoDictionary[dinoName]["isAsleep"] = isAsleep
+	return dinoIndex
 		
 func setCounters():
-	$AwakeCount.text = str(totalDinos - totalDinosAsleep)
+	totalDinosAsleep = 0
+	for dino in dinoDictionary:
+		if dinoDictionary[dino].get("isAsleep"):
+			totalDinosAsleep += 1
+	$AwakeCount.text = str(dinoDictionary.size() - totalDinosAsleep)
 	$SleepCount.text = str(totalDinosAsleep)
 	

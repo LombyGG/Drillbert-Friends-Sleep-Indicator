@@ -20,8 +20,8 @@ func _ready():
 func listenToDrillbot():
 	if Data.of("drillbot.headcount") > 0:
 		addDrillbertHud()
+		Data.apply("drillbert.headcount", Data.of("drillbot.headcount"))
 	Data.listen(self, "drillbot.headcount")
-	Data.apply("drillbert.headcount", Data.of("drillbot.headcount"))
 
 func propertyChanged(property:String, oldValue, newValue):
 	match property:

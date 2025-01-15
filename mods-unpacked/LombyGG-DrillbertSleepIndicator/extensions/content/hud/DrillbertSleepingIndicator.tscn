@@ -16,12 +16,6 @@ script = ExtResource("1_8tugw")
 element_size = Vector2(8, 3)
 layoutPriority = 10
 
-[node name="Awake" type="Control" parent="."]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Drillbert" type="Sprite2D" parent="."]
 position = Vector2(19, 6)
 texture = ExtResource("2_8e1c2")
