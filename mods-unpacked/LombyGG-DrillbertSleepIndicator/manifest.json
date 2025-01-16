@@ -3,7 +3,7 @@
 	"namespace": "LombyGG",
 	"version_number": "0.0.1",
 	"description": "An updated Drillbert sleep indicator for v4 that adapts to show Drilliam, Diggory, Minerva & more!",
-	"website_url": "https://",
+	"website_url": "https://github.com/LombyGG/Drillbert-Friends-Sleep-Indicator",
 	"dependencies": [],
 	"extra": {
 		"godot": {
